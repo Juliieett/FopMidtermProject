@@ -1,3 +1,4 @@
+# IF statement 
 // IF statement syntax:
 // The condition is checked, and if true, the block of code inside {} is executed
 
@@ -31,6 +32,7 @@ IF a > b {
     PRINT "a is not greater";
 }
 
+# WHILE loop
 // WHILE loop syntax:
 // The condition is checked, and the loop continues executing as long as the condition is true
 
