@@ -62,19 +62,22 @@ WHILE i < 3 {
 }
 
 
-// Example 1: Using ELSE
-IF a > b {
-    PRINT "a is greater";
-} ELSE {
-    PRINT "a is not greater"; // This will print if a is not greater than b
-}
+## DO-WHILE Loop
 
-// Example 2: Using ELSE IF
-IF a > b {
-    PRINT "a is greater";
-} ELSE IF a < b {
-    PRINT "a is smaller";
-} ELSE {
-    PRINT "a and b are equal"; // This will print if a equals b
-}
+### Syntax
+- **DO-WHILE Loop**:  
+  `DO <statement>; WHILE <condition>;`  
+  The block of code inside the DO statement is executed at least once before the condition is checked, and it continues executing as long as the condition evaluates to true.
+
+### Examples:
+
+#### Example 1: Print numbers from 0 to 4 using DO-WHILE
+- **Description**: Print numbers from 0 to 4 using a DO-WHILE loop.
+```plaintext
+LET count = 0;  
+DO  
+    PRINT count;  
+    LET count = count + 1;  
+WHILE count < 5;  
+// This will print numbers from 0 to 4
 
