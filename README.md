@@ -41,16 +41,16 @@ NEXT I
 ## Algorithms Implemented
 The following algorithms are implemented using the BASIC subset:
 
-Sum of First N Numbers: Calculate the sum of the first N natural numbers.
-Factorial of N: Compute the factorial of a given number N.
-GCD of Two Numbers: Use the Euclidean algorithm to find the greatest common divisor.
-Reverse a Number: Reverse the digits of an integer.
-Check if a Number is Prime: Determine if a number is prime.
-Check if a Number is Palindrome: Check if a number reads the same backward and forward.
-Find the Largest Digit in a Number: Identify the largest digit in an integer.
-Sum of Digits: Calculate the sum of the digits of a number.
-Multiplication Table: Generate the multiplication table for a given number.
-Nth Fibonacci Number: Compute the Nth Fibonacci number.
+-Sum of First N Numbers: Calculate the sum of the first N natural numbers.
+-Factorial of N: Compute the factorial of a given number N.
+-GCD of Two Numbers: Use the Euclidean algorithm to find the greatest common divisor.
+-Reverse a Number: Reverse the digits of an integer.
+-Check if a Number is Prime: Determine if a number is prime.
+-Check if a Number is Palindrome: Check if a number reads the same backward and forward.
+-Find the Largest Digit in a Number: Identify the largest digit in an integer.
+-Sum of Digits: Calculate the sum of the digits of a number.
+-Multiplication Table: Generate the multiplication table for a given number.
+-Nth Fibonacci Number: Compute the Nth Fibonacci number.
 -->
 ## Project Workflow
 GitHub Repository Structure
