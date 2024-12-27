@@ -1,0 +1,60 @@
+// IF statement syntax:
+// The condition is checked, and if true, the block of code inside {} is executed
+
+// Example 1: Check if a is greater than b and print a message
+IF a > b {
+    PRINT "a is greater"; // This will print "a is greater" if a > b
+}
+
+// Example 2: Check if x equals 10 and print a message
+IF x == 10 {
+    PRINT "x is equal to 10"; // This will print if x equals 10
+}
+
+// Example 3: Check if a is less than b
+IF a < b {
+    PRINT "a is smaller than b"; // This will print if a < b
+}
+
+// Example 4: Nested IF statements
+IF a > b {
+    PRINT "a is greater than b";
+    IF a == c {
+        PRINT "a is also equal to c";
+    }
+}
+
+// The ELSE condition can also be added to provide an alternative block if the condition is false
+IF a > b {
+    PRINT "a is greater";
+} ELSE {
+    PRINT "a is not greater";
+}
+
+// WHILE loop syntax:
+// The condition is checked, and the loop continues executing as long as the condition is true
+
+// Example 1: Print numbers from 0 to 4
+LET count = 0;
+WHILE count < 5 {
+    PRINT count;  // This will print the current value of count
+    LET count = count + 1; // Increment count after each iteration
+}
+
+// Example 2: Print a countdown from 5 to 1
+LET x = 5;
+WHILE x > 0 {
+    PRINT x;  // Print the current value of x
+    LET x = x - 1; // Decrement x after each iteration
+}
+
+// Example 3: Nested WHILE loop
+LET i = 0;
+WHILE i < 3 {
+    LET j = 0;
+    WHILE j < 3 {
+        PRINT "i: " + i + ", j: " + j;
+        LET j = j + 1; // Inner loop increment
+    }
+    LET i = i + 1; // Outer loop increment
+}
