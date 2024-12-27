@@ -30,6 +30,31 @@ Arithmetic expressions can be written using the operators above, and the interpr
 - `LET a = 5 + 3 * 2` → Result: `a = 11` (Multiplication happens first)
 - `LET b = (5 + 3) * 2` → Result: `b = 16` (Parentheses have higher precedence)
 
+ ## Comparison Operators
+
+### Supported Comparison Operators:
+The following comparison operators are supported for evaluating conditions:
+
+- Greater than (`>`)
+- Less than (`<`)
+- Equal to (`==`)
+- Not equal to (`!=`)
+- Greater than or equal to (`>=`)
+- Less than or equal to (`<=`)
+  
+### Examples:
+LET a = 5
+LET b = 10
+PRINT a > b  // Output: false (a is not greater than b)
+PRINT a < b  // Output: true (a is less than b)
+PRINT a == b // Output: false (a is not equal to b)
+PRINT a != b // Output: true (a is not equal to b)
+
+### Syntax:
+Comparison operators are used to compare two values and return a boolean result (either `true` or `false`).
+
+### Examples:
+
 ## PRINT Statement
 
 The `PRINT` statement outputs the result of an expression to the console.
