@@ -30,7 +30,22 @@ Arithmetic expressions can be written using the operators above, and the interpr
 - `LET a = 5 + 3 * 2` → Result: `a = 11` (Multiplication happens first)
 - `LET b = (5 + 3) * 2` → Result: `b = 16` (Parentheses have higher precedence)
 
-### Notes:
-- Arithmetic operations will be performed on integers.
-- Division will truncate results to integers (no floating-point numbers).
-- Parentheses can be used to control the order of operations.
+## PRINT Statement
+
+The `PRINT` statement outputs the result of an expression to the console.
+
+### Syntax:
+
+- The `<expression>` can be a literal value (e.g., `5`) or a variable.
+- The `<expression>` can include simple arithmetic operations, such as `+`, `-`, `*`, `/`, etc.
+
+### Examples:
+- `PRINT 5 + 3;` → Output: `8`
+- `LET a = 10; PRINT a;` → Output: `10`
+- `PRINT a * 2 + 4;` → Output: Result of the arithmetic expression (depends on the value of `a`).
+
+LET a = 2;
+LET b = 3;
+LET c = 4;
+PRINT a * b + c;
+
