@@ -58,3 +58,21 @@ WHILE i < 3 {
     }
     LET i = i + 1; // Outer loop increment
 }
+
+
+// Example 1: Using ELSE
+IF a > b {
+    PRINT "a is greater";
+} ELSE {
+    PRINT "a is not greater"; // This will print if a is not greater than b
+}
+
+// Example 2: Using ELSE IF
+IF a > b {
+    PRINT "a is greater";
+} ELSE IF a < b {
+    PRINT "a is smaller";
+} ELSE {
+    PRINT "a and b are equal"; // This will print if a equals b
+}
+
