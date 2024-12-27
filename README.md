@@ -1,10 +1,10 @@
 # FopMidtermProject
-Project Overview
+## Project Overview
 The BASIC Interpreter Project is a minimalistic implementation of an interpreter for the BASIC programming language. It supports fundamental constructs like variable assignments, arithmetic operations, conditionals, and loops. The interpreter is capable of executing predefined algorithms to demonstrate its functionality.
 
 This project is a collaborative effort by four team members and highlights the principles of interpreter design, language parsing, and execution.
 -->
-Language Subset Specification
+## Language Subset Specification
 The interpreter supports the following BASIC constructs:
 
 -->
@@ -38,7 +38,7 @@ FOR I = 1 TO 10
   PRINT I
 NEXT I
 ...
-Algorithms Implemented
+## Algorithms Implemented
 The following algorithms are implemented using the BASIC subset:
 
 Sum of First N Numbers: Calculate the sum of the first N natural numbers.
@@ -52,7 +52,7 @@ Sum of Digits: Calculate the sum of the digits of a number.
 Multiplication Table: Generate the multiplication table for a given number.
 Nth Fibonacci Number: Compute the Nth Fibonacci number.
 -->
-Project Workflow
+## Project Workflow
 GitHub Repository Structure
 Main Branch: Contains stable and thoroughly tested code.
 Feature Branches: Each team member is responsible for working on a dedicated branch for their assigned features or tasks.
@@ -63,7 +63,7 @@ Commit changes regularly with clear and descriptive messages (e.g., Added parser
 Push your feature branch to the remote repository and create a Pull Request (PR).
 A teammate must review and approve the PR before it is merged into the main branch.
 -->
-Contributors
+## Contributors
 Juli Chaphidze
 Sandro Iobidze
 Temur Tsevelidze
