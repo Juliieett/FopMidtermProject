@@ -1,27 +1,35 @@
 import java.util.Scanner;
 
-public class MULTIPLICATIONTABLE {
+public class NTHFIBONACCI {
 
-    public static void printMultiplicationTable(int num) {
-        System.out.println("Multiplication Table for " + num + ":");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(num + " * " + i + " = " + (num * i));
+    public static int iterativeFibonacci(int n) {
+        if (n <= 0) return 0; // Fibonacci(0) = 0
+        if (n == 1) return 1; // Fibonacci(1) = 1
+
+        int a = 0; // F(0)
+        int b = 1; // F(1)
+        int fib = 1; // Placeholder for Fibonacci value
+
+        for (int i = 2; i <= n; i++) {
+            fib = a + b; // Current Fibonacci number
+            a = b;       // Move F(i-1) to F(i-2)
+            b = fib;     // Move current Fibonacci to F(i-1)
         }
+        return fib;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the number for the multiplication table (e.g., MULTIPLICATIONTABLE(5)): ");
+        System.out.println("Enter the Fibonacci position (e.g., FIB(7)): ");
         String input = scanner.nextLine();
 
-        if (input.startsWith("MULTIPLICATIONTABLE")) {
+        if (input.startsWith("FIB")) {
             String numberPart = input.substring(input.indexOf('(') + 1, input.indexOf(')'));
-            int num = Integer.parseInt(numberPart.trim());
-            printMultiplicationTable(num);
+            int n = Integer.parseInt(numberPart.trim());
+            System.out.println("Fibonacci Number at position " + n + ": " + iterativeFibonacci(n));
         } else {
-            System.out.println("Invalid command. Please use the format MULTIPLICATIONTABLE(N).");
+            System.out.println("Invalid command. Please use the format FIB(N).");
         }
     }
 }
-
