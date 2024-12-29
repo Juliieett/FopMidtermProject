@@ -1,6 +1,6 @@
 # Update File
 
-**Date:** [Insert Date]
+**Date:** [27.12.24]
 
 ---
 
@@ -24,3 +24,11 @@ This was an important step in getting our interpreter to handle different tasks,
 
 By day three, we made sure to test and refine the algorithms. We reviewed and ran some tests to ensure the logic was correct and the interpreter was handling inputs as expected. Any bugs or issues found during testing were fixed, and we made adjustments to the code to improve functionality. We also checked our **GitHub repositories** and **branches** to make sure all changes were committed and properly pushed.
 
+LATER day 3
+: we now understand what needs to be done, we started making single interpreters for all of the algorithms, which was a HUGE mistake, 
+
+even tho we thought it would be possible to bring all of them together at some point, it was  hazardous and we insisted that starting from nearly a zero would be better.
+
+Now we are here and  made some interpreter that handles TWO out of TEN algorithms
+
+which is okay because now we can expand it. We hope everything will go as planned before the deadline.
