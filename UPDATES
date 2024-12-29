@@ -32,3 +32,7 @@ even tho we thought it would be possible to bring all of them together at some p
 Now we are here and we are trying to make  an interpreter that will handle all of the algorithms.
 
  We hope everything will go as planned before the deadline, which is possible because we divided tasks into 4 and we are writing the code with all of our strength.
+SANDRO :  control flow(loops);           
+JULIE : assignment and expression evalutionn (arithmetic operation handling,parsing complex expressions);
+TEMURI : program execution and output;
+TEDO : lexical analysis (tokenization);
