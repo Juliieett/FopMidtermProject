@@ -1,1 +1,26 @@
+# Update File
+
+**Date:** [Insert Date]
+
+---
+
+### Updates from Day One
+
+#### Day 1: Project Kickoff
+
+On the first day, we got the ball rolling by setting up the project. We created a **README file** to outline the purpose of the project and give a clear starting point. We also spent time deciding on the **syntax** and **flow** of our interpreter. This gave us a good foundation for the work ahead, ensuring we all agreed on how the program should function and what kind of commands we'd be supporting.
+
+---
+
+#### Day 2: Algorithm Development and Branch Setup
+
+On day two, we shifted gears and focused on writing our first algorithms. We chose simple algorithms like **Finding the Largest Digit** and **Summing Digits** as initial tasks to test the functionality of our interpreter. To keep things organized, we created separate **branches** for each algorithm to work on them independently without messing up the main project.
+
+This was an important step in getting our interpreter to handle different tasks, and we made sure to update the branches as we went along.
+
+---
+
+#### Day 3: Testing and Refining Algorithms
+
+By day three, we made sure to test and refine the algorithms. We reviewed and ran some tests to ensure the logic was correct and the interpreter was handling inputs as expected. Any bugs or issues found during testing were fixed, and we made adjustments to the code to improve functionality. We also checked our **GitHub repositories** and **branches** to make sure all changes were committed and properly pushed.
 
