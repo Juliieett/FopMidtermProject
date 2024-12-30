@@ -1,1 +1,4 @@
-
+ LET NUM = 121
+                            PALINDROME NUM
+                            LET OTHER = 123
+                            PALINDROME OTHER
