@@ -63,11 +63,11 @@ public void eval(String code) {
 
                 if (token.isEmpty()) continue;
 
-                // Check if the token is a number
+                // token=numbers?
                 if (isNumeric(token)) {
                     values.push(Integer.parseInt(token));
                 }
-                // If the token is a variable, get its value
+                // token=variables? also gets its value
                 else if (variables.containsKey(token)) {
                     values.push(variables.get(token));
                 }
