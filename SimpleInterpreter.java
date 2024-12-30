@@ -37,7 +37,70 @@ public void eval(String code) {
             currentLine++;
         }
     }
+  private void handleAssignment(String line) {
+        try {
+            String[] parts = line.split("=", 2);
+            if (parts.length != 2) {
+                throw new IllegalArgumentException("Invalid assignment syntax: " + line);
+            }
+            String varName = parts[0].replace("LET", "").trim();
+            String expression = parts[1].trim();
+            int value = evaluateExpression(expression);
+            variables.put(varName, value);
+        } catch (Exception e) {
+            System.out.println("Error in assignment: " + line + " - " + e.getMessage());
+        }
+    }
+ private int evaluateExpression(String expression) {
+        try {
+            Deque<Integer> values = new ArrayDeque<>();
+            Deque<Character> operators = new ArrayDeque<>();
 
+            // Tokenize the expression by operators, parentheses, and numbers
+            StringTokenizer tokenizer = new StringTokenizer(expression, "+-*/()%()", true);
+            while (tokenizer.hasMoreTokens()) {
+                String token = tokenizer.nextToken().trim();
 
+                if (token.isEmpty()) continue;
+
+                // Check if the token is a number
+                if (isNumeric(token)) {
+                    values.push(Integer.parseInt(token));
+                }
+                // If the token is a variable, get its value
+                else if (variables.containsKey(token)) {
+                    values.push(variables.get(token));
+                }
+                // Handle operators
+                else if (token.matches("[+\\-*/%]")) {
+                    while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(token.charAt(0))) {
+                        values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
+                    }
+                    operators.push(token.charAt(0));
+                }
+                // Handle parentheses
+                else if (token.equals("(")) {
+                    operators.push('(');
+                } else if (token.equals(")")) {
+                    while (operators.peek() != '(') {
+                        values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
+                    }
+                    operators.pop(); // Remove '('
+                } else {
+                    throw new IllegalArgumentException("Unknown token: " + token);
+                }
+            }
+
+            // Apply remaining operators
+            while (!operators.isEmpty()) {
+                values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
+            }
+
+            return values.pop();
+        } catch (Exception e) {
+            System.out.println("Error evaluating expression: " + expression + " - " + e.getMessage());
+            return 0;
+        }
+    }
   
 }
