@@ -172,6 +172,34 @@ private int applyOperator(char operator, int b, int a) {
             return currentLine;
         }
     }
+ private int handleWhileLoop(String[] lines, int currentLine) {
+        try {
+            String line = lines[currentLine].trim();
+            String condition = line.replace("WHILE", "").trim();
+            int startLine = currentLine + 1;
+
+            List<String> loopBody = new ArrayList<>();
+            int i = startLine;
+            while (i < lines.length && !lines[i].trim().equals("WEND")) {
+                loopBody.add(lines[i].trim());
+                i++;
+            }
+            if (i == lines.length) {
+                throw new IllegalArgumentException("Missing WEND for WHILE loop starting at line: " + currentLine);
+            }
+
+            while (evaluateCondition(condition)) {
+                for (String loopLine : loopBody) {
+                    evalLine(loopLine);
+                }
+            }
+
+            return i;
+        } catch (Exception e) {
+            System.out.println("Error in WHILE loop: " + e.getMessage());
+            return currentLine;
+        }
+    }
 
 
 
