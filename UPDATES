@@ -32,7 +32,10 @@ even tho we thought it would be possible to bring all of them together at some p
 Now we are here and we are trying to make  an interpreter that will handle all of the algorithms.
 
  We hope everything will go as planned before the deadline, which is possible because we divided tasks into 4 and we are writing the code with all of our strength.
-SANDRO :  control flow(loops);           
+SANDRO :  control flow(loops);   
 JULIE : assignment and expression evalutionn (arithmetic operation handling,parsing complex expressions);
 TEMURI : program execution and output;
 TEDO : lexical analysis (tokenization);
+#### Day 4:
+today we had so much progress, now our interpreter works for most of the algorithms .Today we added our made code snippets and connected the entire code.perhaps,we now have few problems,our code lacks  proper MOD(%)
+which makes it hard to implement LARGEST DIGIT algorithm.Also we have trouble writing the multiplication table algorithm,but we have more time and everythings gonna be ok.
