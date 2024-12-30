@@ -1,0 +1,7 @@
+LET X = 48
+LET Y = 18
+WHILE Y != 0
+    LET X = X % Y
+    LET Y = X
+WEND
+PRINT X
