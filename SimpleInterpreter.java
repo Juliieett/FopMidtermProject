@@ -102,8 +102,6 @@ public void eval(String code) {
             return 0;
         }
     }
-  
-}
 
 private int applyOperator(char operator, int b, int a) {
         switch (operator) {
@@ -200,6 +198,48 @@ private int applyOperator(char operator, int b, int a) {
             return currentLine;
         }
     }
+private int handleIfStatement(String[] lines, int currentLine) {
+        try {
+            String line = lines[currentLine].trim();
+            String condition = line.replace("IF", "").replace("THEN", "").trim();
 
+            boolean conditionResult = evaluateCondition(condition);
+            int i = currentLine + 1;
+
+            List<String> ifBody = new ArrayList<>();
+            List<String> elseBody = new ArrayList<>();
+            boolean inElse = false;
+
+            while (i < lines.length && !lines[i].trim().equals("END IF")) {
+                String codeLine = lines[i].trim();
+              
+                if (codeLine.startsWith("ELSE")) {
+                    inElse = true;
+                    i++;
+                    continue;
+                }
+               if (inElse) {
+                    elseBody.add(codeLine);
+                } else {
+                  ifBody.add(codeLine);
+                }
+
+                i++;
+            }
+            if (conditionResult) {
+                for (String lineInBody : ifBody) {
+                    evalLine(lineInBody);
+                }
+            } else {
+                for (String lineInBody : elseBody) {
+                    evalLine(lineInBody);
+                }
+            }
+            return i;
+        } catch (Exception e) {
+            System.out.println("Error in IF-ELSE statement: " + e.getMessage());
+            return currentLine;
+        }
+    }
 
 
