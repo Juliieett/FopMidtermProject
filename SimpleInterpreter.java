@@ -104,3 +104,29 @@ public void eval(String code) {
     }
   
 }
+
+private int applyOperator(char operator, int b, int a) {
+        switch (operator) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': return b != 0 ? a / b : 0; // Avoid division by zero
+            case '%': return a % b;
+            default: throw new IllegalArgumentException("Invalid operator: " + operator);
+        }
+    }
+
+    private int precedence(char operator) {
+        return (operator == '+' || operator == '-') ? 1 : 2; // * and / have higher precedence
+    }
+
+    private void handlePrint(String line) {
+        String expression = line.replace("PRINT", "").trim();
+        if (variables.containsKey(expression)) {
+            System.out.println(variables.get(expression));
+        } else if (expression.startsWith("\"") && expression.endsWith("\"")) {
+            System.out.println(expression.substring(1, expression.length() - 1)); // Print string literals
+        } else {
+            System.out.println("Undefined variable: " + expression);
+        }
+    }
