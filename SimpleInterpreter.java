@@ -242,4 +242,93 @@ private int handleIfStatement(String[] lines, int currentLine) {
         }
     }
 
+  private void handlePalindrome(String line) {
+        System.out.println("Checking palindrome for line: " + line);
+        String varName = line.replace("PALINDROME", "").trim();
+
+        if (!variables.containsKey(varName)) {
+            System.out.println("Undefined variable: " + varName);
+            return;
+        }
+
+        int number = variables.get(varName);
+        System.out.println("Variable " + varName + " has value: " + number);
+
+        if (isPalindrome(number)) {
+            System.out.println(varName + " is a palindrome.");
+        } else {
+            System.out.println(varName + " is not a palindrome.");
+        }
+    }
+
+    private boolean isPalindrome(int number) {
+        System.out.println("Checking if " + number + " is a palindrome.");
+        int original = number;
+        int reversed = 0;
+
+        while (number > 0) {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+
+        return original == reversed;
+    }
+
+
+    private boolean evaluateCondition(String condition) {
+        Matcher matcher = Pattern.compile("(\\w+)\\s*([<>!=]+)\\s*(\\d+)").matcher(condition);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Invalid condition: " + condition);
+        }
+
+        String varName = matcher.group(1);
+        String operator = matcher.group(2);
+        int value = Integer.parseInt(matcher.group(3));
+
+        int varValue = variables.getOrDefault(varName, 0);
+
+        return switch (operator) {
+            case ">" -> varValue > value;
+            case "<" -> varValue < value;
+            case ">=" -> varValue >= value;
+            case "<=" -> varValue <= value;
+            case "==" -> varValue == value;
+            case "!=" -> varValue != value;
+            default -> false;
+        };
+    }
+
+
+    private void evalLine(String line) {
+        if (line.startsWith("LET")) {
+            handleAssignment(line);
+        } else if (line.startsWith("PRINT")) {
+            handlePrint(line);
+        } else if (line.startsWith("IF")) {
+            // Handle inline IF statements if needed
+        } else {
+            System.out.println("Unknown command: " + line);
+        }
+    }
+    private boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        SimpleInterpreter interpreter = new SimpleInterpreter();
+
+        String program = """
+              //specific syntax of algorithms
+        """;
+
+        interpreter.eval(program);
+    }
+}
+
 
