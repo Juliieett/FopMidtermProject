@@ -125,8 +125,53 @@ private int applyOperator(char operator, int b, int a) {
         if (variables.containsKey(expression)) {
             System.out.println(variables.get(expression));
         } else if (expression.startsWith("\"") && expression.endsWith("\"")) {
-            System.out.println(expression.substring(1, expression.length() - 1)); // Print string literals
+            System.out.println(expression.substring(1, expression.length() - 1)); 
         } else {
             System.out.println("Undefined variable: " + expression);
         }
     }
+
+    private int handleForLoop(String[] lines, int currentLine) {
+        try {
+            String line = lines[currentLine].trim();
+            Matcher matcher = Pattern.compile("FOR\\s+(\\w+)\\s*=\\s*(.+)\\s+TO\\s+(.+)").matcher(line);
+            if (!matcher.matches()) {
+                throw new IllegalArgumentException("Invalid FOR syntax: " + line);
+            }
+
+            String varName = matcher.group(1);
+          String startExpr = matcher.group(2).trim();
+         String endExpr = matcher.group(3).trim();
+
+            int start = evaluateExpression(startExpr);
+            int end = evaluateExpression(endExpr);
+            variables.put(varName, start);
+
+            int loopStartLine = currentLine + 1;
+            List<String> loopBody = new ArrayList<>();
+
+            int i = loopStartLine;
+            while (i < lines.length && !lines[i].trim().startsWith("NEXT")) {
+                loopBody.add(lines[i].trim());
+                i++;
+            }
+            if (i == lines.length || !lines[i].trim().equals("NEXT")) {
+                throw new IllegalArgumentException("Missing NEXT for FOR loop starting at line: " + currentLine);
+            }
+
+            while (variables.get(varName) <= end) {
+                for (String loopLine : loopBody) {
+                    evalLine(loopLine);
+                }
+                variables.put(varName, variables.get(varName) + 1);
+            }
+
+            return i;
+        } catch (Exception e) {
+            System.out.println("Error in FOR loop: " + e.getMessage());
+            return currentLine;
+        }
+    }
+
+
+
