@@ -1,6 +1,6 @@
 
 ### how interpreter works
-copy this BASIC's codes into our interpreter at the end of the code u can always change the numbers :) :String program = """
+copy this BASIC's codes into our interpreter at the end of the code ;u can always change the numbers :) :String program = """
               
                 //here
         """; 
