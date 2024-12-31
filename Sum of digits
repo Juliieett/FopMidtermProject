@@ -1,0 +1,85 @@
+LET NUM = 1234
+                LET SUM = 0
+                WHILE NUM > 0
+                    LET DIGIT = NUM % 10
+                    LET SUM = SUM + DIGIT
+                    LET NUM = NUM / 10
+                WEND
+                PRINT SUM
+
+LET NUM = 1234
+The interpreter assigns the value 1234 to the variable NUM.
+
+LET SUM = 0
+The interpreter assigns 0 to the variable SUM (this will accumulate the sum of the digits).
+
+WHILE NUM > 0
+The interpreter checks if NUM (which is 1234) is greater than 0. Since 1234 > 0, the condition is true, and the loop continues.
+
+LET DIGIT = NUM % 10
+The interpreter calculates the last digit of NUM using the modulus operator (NUM % 10).
+
+1234 % 10 results in 4 (last digit of 1234).
+The interpreter stores 4 in the variable DIGIT.
+LET SUM = SUM + DIGIT
+The interpreter adds the value of DIGIT (which is 4) to SUM (which is initially 0).
+
+SUM = 0 + 4, so SUM becomes 4.
+LET NUM = NUM / 10
+The interpreter removes the last digit from NUM by performing integer division (NUM / 10).
+
+1234 / 10 results in 123 (integer division truncates the decimal).
+The interpreter assigns 123 to NUM.
+WHILE NUM > 0
+The interpreter checks if NUM (now 123) is greater than 0. Since 123 > 0, the condition is true, and the loop continues.
+
+LET DIGIT = NUM % 10
+The interpreter calculates the last digit of NUM (which is 123), so 123 % 10 results in 3.
+The interpreter stores 3 in DIGIT.
+
+LET SUM = SUM + DIGIT
+The interpreter adds the value of DIGIT (which is 3) to SUM (which is currently 4).
+
+SUM = 4 + 3, so SUM becomes 7.
+LET NUM = NUM / 10
+The interpreter removes the last digit from NUM by performing integer division.
+
+123 / 10 results in 12.
+The interpreter assigns 12 to NUM.
+WHILE NUM > 0
+The interpreter checks if NUM (now 12) is greater than 0. Since 12 > 0, the condition is true, and the loop continues.
+
+LET DIGIT = NUM % 10
+The interpreter calculates the last digit of NUM (which is 12), so 12 % 10 results in 2.
+The interpreter stores 2 in DIGIT.
+
+LET SUM = SUM + DIGIT
+The interpreter adds the value of DIGIT (which is 2) to SUM (which is currently 7).
+
+SUM = 7 + 2, so SUM becomes 9.
+LET NUM = NUM / 10
+The interpreter removes the last digit from NUM by performing integer division.
+
+12 / 10 results in 1.
+The interpreter assigns 1 to NUM.
+WHILE NUM > 0
+The interpreter checks if NUM (now 1) is greater than 0. Since 1 > 0, the condition is true, and the loop continues.
+
+LET DIGIT = NUM % 10
+The interpreter calculates the last digit of NUM (which is 1), so 1 % 10 results in 1.
+The interpreter stores 1 in DIGIT.
+
+LET SUM = SUM + DIGIT
+The interpreter adds the value of DIGIT (which is 1) to SUM (which is currently 9).
+
+SUM = 9 + 1, so SUM becomes 10.
+LET NUM = NUM / 10
+The interpreter removes the last digit from NUM by performing integer division.
+
+1 / 10 results in 0.
+The interpreter assigns 0 to NUM.
+WHILE NUM > 0
+The interpreter checks if NUM (now 0) is greater than 0. Since 0 > 0 is false, the loop terminates.
+
+PRINT SUM
+Finally, the interpreter prints the value of SUM, which is 10.
