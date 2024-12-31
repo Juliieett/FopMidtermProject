@@ -71,13 +71,41 @@ WHILE i < 3 {
 
 ### Examples:
 
-#### Example 1: Print numbers from 0 to 4 using DO-WHILE
+ Example 1: Print numbers from 0 to 4 using DO-WHILE
 - **Description**: Print numbers from 0 to 4 using a DO-WHILE loop.
-```plaintext
 LET count = 0;  
 DO  
     PRINT count;  
     LET count = count + 1;  
 WHILE count < 5;  
+This will print numbers from 0 to 4
+
+#### For Loop
+FOR Loop Syntax:
+FOR Loop:
+FOR <initialization>; <condition>; <increment/decrement> { <statement> }
+The loop starts by initializing the loop variable, then checks the condition before each iteration, and after each iteration, it updates the loop variable.
+Examples:
+
+Example 1: Print numbers from 0 to 4
+Description: Print numbers from 0 to 4 using a FOR loop.
+FOR LET count = 0; count < 5; LET count = count + 1 {
+    PRINT count;  
+}
 // This will print numbers from 0 to 4
+Example 2: Print even numbers from 2 to 10
+Description: Print even numbers between 2 and 10 using a FOR loop.
+FOR LET i = 2; i <= 10; LET i = i + 2 {
+    PRINT i;  
+}
+// This will print 2, 4, 6, 8, 10
+
+Example 3: Nested FOR loop
+Description: A nested FOR loop to print pairs of numbers.
+FOR LET i = 0; i < 3; LET i = i + 1 {
+    FOR LET j = 0; j < 3; LET j = j + 1 {
+        PRINT "i: " + i + ", j: " + j;  
+    }
+}
+// This will print pairs of i and j values, such as i: 0, j: 0; i: 0, j: 1; etc.
 
