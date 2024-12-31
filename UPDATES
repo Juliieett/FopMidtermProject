@@ -31,6 +31,27 @@ even tho we thought it would be possible to bring all of them together at some p
 
 Now we are here and we are trying to make  an interpreter that will handle all of the algorithms.
 
+Hours before DEADLINE: Last two days we were testing code on algorithms, when we first put the code together it only handled 7/10 algorithms. SO after this we decided to take a rest and give it a shot next day.
+Last Day: Updates to the Simple Interpreter:
+
+In this update, we made several key changes to the Simple Interpreter to support new functionality, improve code structure, and enhance overall performance. These updates include new algorithms for checking prime numbers, generating multiplication tables, and finding the largest digit in a number. In addition to these new features, we also focused on refining and optimizing other parts of the code to make the interpreter more efficient and easier to maintain.
+- Expression Evaluation Block:
+  We revised the expression evaluation logic to handle more complex expressions and new operations. These changes were crucial for supporting features like prime number checking, multiplication table generation, and the largest digit algorithm.
+
+- Assignment Block:
+  The assignment block was updated to ensure that variables are correctly parsed and evaluated for the new algorithms. This also involved improving error handling and ensuring more reliable assignment of values to variables.
+
+- New Algorithms Implemented:
+  - Prime Number Check: We added a method to check if a number is prime. This required refining how conditions are evaluated and ensuring the correct logic for prime checking.
+  - Multiplication Table: A new feature was introduced to generate and print the multiplication table for any given number. This required enhancing the interpreter’s loop handling.
+  - Largest Digit: We implemented a function to find the largest digit in a given number, expanding the interpreter's capabilities with digit-based calculations.
+
+- Final Code Review:
+  We had a final look over the entire code, tested every algorithm, and ensured that everything was working as expected. The interpreter is now fully ready, with all features implemented and properly tested.
+  And now we will try to FETCH EVERYTHING
+
+
+
  We hope everything will go as planned before the deadline, which is possible because we divided tasks into 4 and we are writing the code with all of our strength.
 SANDRO :  control flow(loops);   
 JULIE : assignment and expression evalutionn (arithmetic operation handling,parsing complex expressions);
