@@ -4,3 +4,38 @@ FOR I = 1 TO N
 LET FACT = FACT * I
 NEXT
 PRINT FACT
+
+
+Line: LET N = 5:
+
+The LET command assigns the value 5 to the variable N.
+The interpreter processes this line via the handleAssignment method, parsing the variable name (N) and value (5) and storing it in the variables map.
+Line: LET FACT = 1:
+
+The LET command assigns the value 1 to the variable FACT.
+The interpreter processes this line similarly, adding FACT with a value of 1 to the variables map.
+FOR Loop:
+
+Line: FOR I = 1 TO N:
+
+The FOR command initializes the loop variable I to 1 and sets the loop condition to run until I is less than or equal to the value of N (which is 5).
+The interpreter uses the handleForLoop method to parse the loop range and execute the body of the loop.
+Loop Body: LET FACT = FACT * I:
+
+During each iteration, the LET command updates the value of FACT by multiplying it with the current value of I.
+The evaluateExpression method calculates the new value of FACT by retrieving the current values of FACT and I from the variables map and performing the multiplication.
+Line: NEXT:
+
+The NEXT command increments the loop variable I and checks if I is still within the range (1 to N).
+If I is within range, the interpreter re-executes the loop body. Otherwise, it exits the loop.
+Output:
+
+Line: PRINT FACT:
+The PRINT command outputs the value of FACT after the loop completes.
+The interpreter's handlePrint method retrieves the final value of FACT (which is 120) from the variables map and prints it.
+Interpreter Methods Involved:
+handleAssignment: Handles LET commands to assign values to variables.
+handleForLoop: Executes the FOR loop, managing the loop variable and body execution.
+handlePrint: Handles the PRINT command, evaluating expressions or retrieving variable values for output.
+evaluateExpression: Parses and evaluates mathematical expressions, supporting variables and operators.
+
