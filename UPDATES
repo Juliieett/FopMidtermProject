@@ -39,3 +39,6 @@ TEDO : lexical analysis (tokenization);
 #### Day 4:
 today we had so much progress, now our interpreter works for most of the algorithms .Today we added our made code snippets and connected the entire code.perhaps,we now have few problems,our code lacks  proper MOD(%)
 which makes it hard to implement LARGEST DIGIT algorithm.Also we have trouble writing the multiplication table algorithm,but we have more time and everythings gonna be ok.
+#### Day 5 :
+This is our deadline day and we are trying to test all of the algorithms we are given. we made it work for 8 out of 10 algorithms but we have hard time processing how to implement a logic which can read (N/10) in brackets , that's why we can't yet process Largest digit checker .
+we also have promlem defining MOD (%) that's why prime checker doesn't work.but now we know what's issue so we try to fix it before midnight.
