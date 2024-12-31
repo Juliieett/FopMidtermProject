@@ -38,6 +38,17 @@ LET NUM = 121
   LET OTHER = 123
         PALINDROME OTHER 
 
+### sum of digits
+LET NUM = 1234
+LET SUM = 0
+WHILE NUM > 0
+    LET DIGIT = NUM % 10
+    LET SUM = SUM + DIGIT
+    LET NUM = NUM / 10
+WEND
+PRINT SUM
+
+
 ### Reverse
 LET X = 1234
 LET REVERSED = 0
