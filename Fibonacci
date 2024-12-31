@@ -6,3 +6,44 @@ FOR I = 2 TO X
     LET B = A
 NEXT
 PRINT B
+
+
+Line: LET X = 10:
+
+The LET command assigns the value 10 to the variable X.
+The interpreter uses handleAssignment to store X with the value 10 in the variables map.
+Line: LET A = 0:
+
+The LET command assigns 0 to the variable A.
+The interpreter adds A with the value 0 to the variables map.
+Line: LET B = 1:
+
+The LET command assigns 1 to the variable B.
+The interpreter adds B with the value 1 to the variables map.
+FOR Loop:
+
+Line: FOR I = 2 TO X:
+
+The FOR loop initializes the loop variable I to 2 and sets the condition to run until I is less than or equal to X (10).
+The interpreter parses the loop range using handleForLoop and sets up the loop to execute its body repeatedly.
+Loop Body:
+
+During each iteration, the following commands are executed:
+
+Line: LET A = A + B:
+
+The LET command updates the value of A by adding the current values of A and B.
+The interpreter retrieves A and B from the variables map, computes their sum, and updates A with the result.
+Line: LET B = A:
+
+The LET command assigns the updated value of A to B.
+The interpreter sets the value of B to match the new value of A.
+Line: NEXT:
+
+The NEXT command increments the loop variable I and checks if I is still within the range (2 to X).
+If I is within range, the loop body executes again. Otherwise, the loop exits.
+Output:
+
+Line: PRINT B:
+The PRINT command outputs the value of B after the loop completes.
+The interpreter retrieves the final value of B from the variables map and prints it.
