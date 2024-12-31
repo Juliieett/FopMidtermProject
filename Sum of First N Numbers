@@ -4,3 +4,106 @@ FOR I = 1 TO X
 LET SUM = SUM + I
 NEXT
 PRINT SUM
+
+First Line: LET X = 10
+Read: The interpreter reads the LET statement.
+Parse: It recognizes this as an assignment:
+Variable: X, Value: 10.
+Execute: Updates the symbol table:
+Symbol Table: { X: 10 }
+
+2. Second Line: LET SUM = 0
+Read: The interpreter reads the LET statement.
+Parse: It recognizes this as an assignment:
+Variable: SUM, Value: 0.
+Execute: Updates the symbol table:
+Symbol Table: { X: 10, SUM: 0 }
+
+3. Third Line: FOR I = 1 TO X
+Read: The interpreter reads the FOR statement.
+Parse: It recognizes the FOR loop structure and initializes I to 1.
+Check loop condition: The loop is set to iterate from 1 to X, which is 10 (so, 1 ≤ I ≤ 10).
+Execute: The interpreter enters the loop and initializes the variable I to 1.
+
+4. Inside the FOR loop:
+First iteration (I = 1):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 0.
+Current value of I: 1.
+SUM = SUM + I → SUM = 0 + 1 → SUM = 1.
+Symbol Table after iteration 1:
+Symbol Table: { X: 10, SUM: 1, I: 1 }
+Second iteration (I = 2):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 1.
+Current value of I: 2.
+SUM = SUM + I → SUM = 1 + 2 → SUM = 3.
+Symbol Table after iteration 2:
+Symbol Table: { X: 10, SUM: 3, I: 2 }
+Third iteration (I = 3):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 3.
+Current value of I: 3.
+SUM = SUM + I → SUM = 3 + 3 → SUM = 6.
+Symbol Table after iteration 3:
+Symbol Table: { X: 10, SUM: 6, I: 3 }
+Fourth iteration (I = 4):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 6.
+Current value of I: 4.
+SUM = SUM + I → SUM = 6 + 4 → SUM = 10.
+Symbol Table after iteration 4:
+Symbol Table: { X: 10, SUM: 10, I: 4 }
+Fifth iteration (I = 5):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 10.
+Current value of I: 5.
+SUM = SUM + I → SUM = 10 + 5 → SUM = 15.
+Symbol Table after iteration 5:
+Symbol Table: { X: 10, SUM: 15, I: 5 }
+Sixth iteration (I = 6):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 15.
+Current value of I: 6.
+SUM = SUM + I → SUM = 15 + 6 → SUM = 21.
+Symbol Table after iteration 6:
+Symbol Table: { X: 10, SUM: 21, I: 6 }
+Seventh iteration (I = 7):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 21.
+Current value of I: 7.
+SUM = SUM + I → SUM = 21 + 7 → SUM = 28.
+Symbol Table after iteration 7:
+Symbol Table: { X: 10, SUM: 28, I: 7 }
+Eighth iteration (I = 8):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 28.
+Current value of I: 8.
+SUM = SUM + I → SUM = 28 + 8 → SUM = 36.
+Symbol Table after iteration 8:
+Symbol Table: { X: 10, SUM: 36, I: 8 }
+Ninth iteration (I = 9):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 36.
+Current value of I: 9.
+SUM = SUM + I → SUM = 36 + 9 → SUM = 45.
+Symbol Table after iteration 9:
+Symbol Table: { X: 10, SUM: 45, I: 9 }
+Tenth iteration (I = 10):
+Line inside loop: LET SUM = SUM + I
+Current value of SUM: 45.
+Current value of I: 10.
+SUM = SUM + I → SUM = 45 + 10 → SUM = 55.
+Symbol Table after iteration 10:
+Symbol Table: { X: 10, SUM: 55, I: 10 }
+
+5. Exit the FOR loop:
+Condition Check: The loop finishes after 10 iterations, since I has reached 10.
+Exit Loop: The interpreter exits the loop.
+
+6. Final Line: PRINT SUM
+Read: The interpreter reads the PRINT statement.
+Parse: It checks the value of SUM.
+Current value of SUM: 55.
+Output: The interpreter prints:
+55
