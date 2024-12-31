@@ -1,3 +1,10 @@
+
+### how interpreter works
+copy this basic codes into our interpreter at the end of the code :String program = """
+              
+                //here
+        """; 
+
 ### factorial
 LET N = 5
 LET FACT = 1
