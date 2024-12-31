@@ -1,7 +1,8 @@
 LET X = 48
 LET Y = 18
 WHILE Y != 0
-    LET X = X % Y
-    LET Y = X
+    LET TEMP = Y
+    LET Y = X % Y
+    LET X = TEMP
 WEND
 PRINT X
