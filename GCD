@@ -6,3 +6,43 @@ WHILE Y != 0
     LET X = TEMP
 WEND
 PRINT X
+
+Line: LET X = 48:
+
+The LET command assigns 48 to the variable X.
+The interpreter stores X with value 48 in the variables map.
+Line: LET Y = 18:
+
+The LET command assigns 18 to the variable Y.
+The interpreter stores Y with value 18 in the variables map.
+WHILE Loop:
+
+Line: WHILE Y != 0:
+
+The WHILE loop continues to execute as long as the condition Y != 0 is true.
+The interpreter evaluates this condition by retrieving Y from the variables map and checking if it's not 0.
+Loop Body:
+
+During each iteration, the following commands are executed:
+
+Line: LET TEMP = Y:
+
+The LET command assigns the current value of Y to TEMP.
+The interpreter retrieves Y and creates a new variable TEMP with the same value.
+Line: LET Y = X % Y:
+
+The LET command updates Y with the remainder of X divided by Y (X % Y).
+The interpreter retrieves X and Y from the variables map, computes the remainder, and updates Y.
+Line: LET X = TEMP:
+
+The LET command updates X with the value of TEMP.
+The interpreter retrieves TEMP and updates X to this value.
+Line: WEND:
+
+This command marks the end of the loop body.
+The interpreter reevaluates the WHILE condition. If Y != 0, the loop continues. Otherwise, it exits.
+Output:
+
+Line: PRINT X:
+The PRINT command outputs the value of X after the loop ends.
+The interpreter retrieves X from the variables map and prints it.
