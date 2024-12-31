@@ -7,3 +7,51 @@
                        LET X = X / 10
                    WEND
                    PRINT MAX_DIGIT
+
+LET X = 9347
+The interpreter assigns the value 9347 to the variable X. This is the number whose digits we want to analyze.
+
+LET MAX_DIGIT = 0
+The interpreter assigns 0 to the variable MAX_DIGIT. This will store the largest digit found as the code processes each digit of X.
+
+WHILE X > 0
+The interpreter starts a WHILE loop that runs as long as X is greater than 0. The loop will continue until all the digits of X have been processed.
+
+LET DIGIT = X % 10
+Inside the loop, the interpreter calculates X % 10 to extract the last digit of X. This result is stored in the variable DIGIT. For example, when X = 9347, X % 10 gives the last digit 7.
+
+IF DIGIT > MAX_DIGIT THEN LET MAX_DIGIT = DIGIT
+The interpreter checks if the current digit (DIGIT) is greater than MAX_DIGIT. If it is, it updates MAX_DIGIT with the value of DIGIT.
+
+LET X = X / 10
+The interpreter removes the last digit from X by performing integer division (X / 10). This effectively shifts the digits of X to the right. For example, 9347 / 10 results in 934 (the fractional part is discarded).
+
+WEND
+The interpreter goes back to the beginning of the WHILE loop and repeats steps 4 through 6 until X becomes 0.
+
+Detailed Iteration:
+First iteration (X = 9347):
+
+DIGIT = 9347 % 10 = 7
+MAX_DIGIT = 0, so MAX_DIGIT = 7 (since 7 > 0).
+X = 9347 / 10 = 934.
+Second iteration (X = 934):
+
+DIGIT = 934 % 10 = 4
+MAX_DIGIT = 7, so no change to MAX_DIGIT.
+X = 934 / 10 = 93.
+Third iteration (X = 93):
+
+DIGIT = 93 % 10 = 3
+MAX_DIGIT = 7, so no change to MAX_DIGIT.
+X = 93 / 10 = 9.
+Fourth iteration (X = 9):
+
+DIGIT = 9 % 10 = 9
+MAX_DIGIT = 7, so MAX_DIGIT = 9 (since 9 > 7).
+X = 9 / 10 = 0.
+WEND
+The loop ends because X is now 0.
+
+PRINT MAX_DIGIT
+Finally, the interpreter prints the value of MAX_DIGIT, which is 9, since it is the largest digit found during the iterations.
