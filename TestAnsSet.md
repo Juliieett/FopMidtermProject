@@ -32,14 +32,6 @@ LET X = 5
   PRINT X * I            
   NEXT
 
- ###
-  ET X = 10
-LET A = 0
-LET B = 1
-FOR I = 2 TO X
-    LET A = A + B
-    LET B = A 
-
 ### Palindrome num checker
 LET NUM = 121
   PALINDROME NUM
@@ -55,11 +47,10 @@ WHILE X > 0
 WEND
 PRINT REVERSED
 
-### Sum of first N digits
-LET X = 1234
-LET REVERSED = 0
-WHILE X > 0
-    LET REVERSED = REVERSED * 10 + X % 10
-    LET X = X / 10
-WEND
-PRINT REVERSED
+### Sum of first N numbers
+LET X = 10
+LET SUM = 0
+FOR I = 1 TO X
+LET SUM = SUM + I
+NEXT
+PRINT SUM
