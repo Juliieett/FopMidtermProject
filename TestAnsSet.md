@@ -1,6 +1,6 @@
 
 ### how interpreter works
-copy this basic codes into our interpreter at the end of the code :String program = """
+copy this BASIC's codes into our interpreter at the end of the code :String program = """
               
                 //here
         """; 
@@ -72,3 +72,14 @@ FOR I = 1 TO X
 LET SUM = SUM + I
 NEXT
 PRINT SUM
+
+### Find the Largest Digit in X
+LET X = 9347
+   LET MAX_DIGIT = 0
+     WHILE X > 0
+     LET DIGIT = X % 10
+    IF DIGIT > MAX_DIGIT
+     LET MAX_DIGIT = DIGIT
+     LET X = X / 10
+     WEND
+     PRINT MAX_DIGIT
