@@ -1,10 +1,9 @@
-
-LET x = 5
-            LET y = 10
-            PRINT x
-            PRINT y
-            IF x == 5 THEN PRINT "x is 5" ELSE PRINT "x is not 5"
-            LET z = 11
-            PRIME z
-            LET num = 15
-            PRIME num
+LET X = 13
+                   LET IS_PRIME = 1
+                   FOR I = 2 TO X - 1
+      LET TEMP = X % I
+                       IF TEMP = 0 THEN LET IS_PRIME = 0
+                   NEXT
+                
+                   IF IS_PRIME = 1 THEN PRINT "Prime"
+                   IF IS_PRIME = 0 THEN PRINT "Not Prime"
