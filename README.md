@@ -5,7 +5,8 @@ The BASIC Interpreter Project is a minimalistic implementation of an interpreter
 This project is a collaborative effort by four team members and highlights the principles of interpreter design, language parsing, and execution.
 -->
 ## Language Subset Specification
-The interpreter supports the following BASIC constructs:
+All of the supported Basic syntax can be found in a branch "Algorithms";
+here are just interpreter supported BASIC constructors :
 
 -->
 Variable Assignment
@@ -64,10 +65,10 @@ Push your feature branch to the remote repository and create a Pull Request (PR)
 A teammate must review and approve the PR before it is merged into the main branch.
 -->
 ## Contributors
-Juli Chaphidze
-Sandro Iobidze
-Temur Tsevelidze
-Tedo Rionidze
+Juli Chaphidze -  assignment and expression evalutionn (arithmetic operation handling,parsing complex expressions);
+Sandro Iobidze - control flow(loops);   
+Temur Tsevelidze - program execution and output;
+Tedo Rionidze -  lexical analysis (tokenization);
 -->
 Deliverables
 Interpreter Implementation: A fully functional BASIC interpreter capable of executing the defined language subset.
