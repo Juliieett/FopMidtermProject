@@ -1,1 +1,4 @@
-
+  LET X = 5
+  FOR I = 1 TO 10
+  PRINT X * I            
+  NEXT
