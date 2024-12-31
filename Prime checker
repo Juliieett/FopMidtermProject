@@ -1,0 +1,66 @@
+LET X = 13
+LET IS_PRIME = 1
+FOR I = 2 TO X - 1
+    LET TEMP = X % I
+    IF TEMP = 0 THEN LET IS_PRIME = 0
+NEXT
+IF IS_PRIME = 1 THEN PRINT "Prime"
+IF IS_PRIME = 0 THEN PRINT "Not Prime"
+
+LET X = 13
+The interpreter assigns the value 13 to the variable X.
+
+LET IS_PRIME = 1
+The interpreter assigns 1 to the variable IS_PRIME. This is an initial assumption that X is prime. If X is divisible by any number other than 1 and itself, IS_PRIME will be set to 0.
+
+FOR I = 2 TO X - 1
+The interpreter sets up a FOR loop where I starts from 2 and runs up to X - 1 (which is 12 in this case). The loop will check each number between 2 and 12 to see if any of these divide X evenly (i.e., leave no remainder).
+
+LET TEMP = X % I
+Inside the loop, the interpreter calculates X % I (the remainder when X is divided by I) and stores this result in the variable TEMP. The interpreter checks if TEMP is 0 to see if X is divisible by I.
+
+IF TEMP = 0 THEN LET IS_PRIME = 0
+The interpreter checks if TEMP is 0, which means X is divisible by I (i.e., X is not prime). If TEMP is 0, it sets IS_PRIME to 0.
+
+NEXT
+The interpreter increments I and continues to the next iteration of the loop, repeating steps 4 and 5 for each value of I from 2 to 12.
+
+Detailed Iteration:
+When I = 2:
+The interpreter calculates 13 % 2, which equals 1 (not 0). Since the remainder is not 0, IS_PRIME remains 1.
+
+When I = 3:
+The interpreter calculates 13 % 3, which equals 1 (not 0). IS_PRIME remains 1.
+
+When I = 4:
+The interpreter calculates 13 % 4, which equals 1 (not 0). IS_PRIME remains 1.
+
+When I = 5:
+The interpreter calculates 13 % 5, which equals 3 (not 0). IS_PRIME remains 1.
+
+When I = 6:
+The interpreter calculates 13 % 6, which equals 1 (not 0). IS_PRIME remains 1.
+
+When I = 7:
+The interpreter calculates 13 % 7, which equals 6 (not 0). IS_PRIME remains 1.
+
+When I = 8:
+The interpreter calculates 13 % 8, which equals 5 (not 0). IS_PRIME remains 1.
+
+When I = 9:
+The interpreter calculates 13 % 9, which equals 4 (not 0). IS_PRIME remains 1.
+
+When I = 10:
+The interpreter calculates 13 % 10, which equals 3 (not 0). IS_PRIME remains 1.
+
+When I = 11:
+The interpreter calculates 13 % 11, which equals 2 (not 0). IS_PRIME remains 1.
+
+When I = 12:
+The interpreter calculates 13 % 12, which equals 1 (not 0). IS_PRIME remains 1.
+
+IF IS_PRIME = 1 THEN PRINT "Prime"
+After completing the loop, the interpreter checks if IS_PRIME is still 1. Since IS_PRIME is 1 (meaning no divisor was found other than 1 and X itself), the interpreter prints "Prime".
+
+IF IS_PRIME = 0 THEN PRINT "Not Prime"
+This line is skipped because IS_PRIME is not 0.
