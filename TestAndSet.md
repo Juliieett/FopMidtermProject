@@ -83,3 +83,13 @@ LET X = 9347
      LET X = X / 10
      WEND
      PRINT MAX_DIGIT
+
+### Check if the number is prime
+LET X = 13
+   LET IS_PRIME = 1
+   FOR I = 2 TO X - 1
+    LET TEMP = X % I
+  IF TEMP = 0 THEN LET IS_PRIME = 0
+  NEXT
+  IF IS_PRIME = 1 THEN PRINT "Prime"
+   IF IS_PRIME = 0 THEN PRINT "Not Prime"
