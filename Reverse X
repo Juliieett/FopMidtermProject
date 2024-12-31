@@ -5,3 +5,70 @@ WHILE X > 0
     LET X = X / 10
 WEND
 PRINT REVERSED
+
+1. First Line: LET X = 1234
+Read: The interpreter reads the LET statement.
+Parse: It recognizes this as an assignment:
+Variable: X, Value: 1234.
+Execute: Updates the symbol table:
+Symbol Table: { X: 1234 }
+
+2. Second Line: LET REVERSED = 0
+Read: The interpreter reads the LET statement.
+Parse: It recognizes this as an assignment:
+Variable: REVERSED, Value: 0.
+Execute: Updates the symbol table:
+Symbol Table: { X: 1234, REVERSED: 0 }
+
+3. Third Line: WHILE X > 0
+Read: The interpreter reads the WHILE statement.
+Condition Check: It checks if the condition X > 0 is true.
+Current value of X: 1234, so 1234 > 0 is true.
+Enter the loop: Since the condition is true, it enters the loop.
+
+4. Inside the WHILE loop:
+First iteration:
+Line 1 inside loop: LET REVERSED = REVERSED * 10 + X % 10
+X = 1234.
+X % 10 gives the last digit of X, which is 4.
+REVERSED = REVERSED * 10 + 4 → REVERSED = 0 * 10 + 4 → REVERSED = 4.
+Line 2 inside loop: LET X = X / 10
+X = X / 10 → X = 1234 / 10 → X = 123 (integer division).
+Symbol Table after iteration 1:
+Symbol Table: { X: 123, REVERSED: 4 }
+Second iteration:
+Line 1 inside loop: LET REVERSED = REVERSED * 10 + X % 10
+X = 123.
+X % 10 gives the last digit of X, which is 3.
+REVERSED = REVERSED * 10 + 3 → REVERSED = 4 * 10 + 3 → REVERSED = 43.
+Line 2 inside loop: LET X = X / 10
+X = X / 10 → X = 123 / 10 → X = 12.
+Symbol Table after iteration 2:
+Symbol Table: { X: 12, REVERSED: 43 }
+Third iteration:
+Line 1 inside loop: LET REVERSED = REVERSED * 10 + X % 10
+X = 12.
+X % 10 gives the last digit of X, which is 2.
+REVERSED = REVERSED * 10 + 2 → REVERSED = 43 * 10 + 2 → REVERSED = 432.
+Line 2 inside loop: LET X = X / 10
+X = X / 10 → X = 12 / 10 → X = 1.
+Symbol Table after iteration 3:
+Symbol Table: { X: 1, REVERSED: 432 }
+Fourth iteration:
+Line 1 inside loop: LET REVERSED = REVERSED * 10 + X % 10
+X = 1.
+X % 10 gives the last digit of X, which is 1.
+REVERSED = REVERSED * 10 + 1 → REVERSED = 432 * 10 + 1 → REVERSED = 4321.
+Line 2 inside loop: LET X = X / 10
+X = X / 10 → X = 1 / 10 → X = 0.
+Symbol Table after iteration 4:
+Symbol Table: { X: 0, REVERSED: 4321 }
+
+5. Exit the WHILE loop:
+Condition Check: The loop condition X > 0 is now false (since X = 0), so the interpreter exits the loop.
+6. Final Line: PRINT REVERSED
+Read: The interpreter reads the PRINT statement.
+Parse: It checks the value of REVERSED.
+Current value of REVERSED: 4321.
+Output: The interpreter prints:
+4321
