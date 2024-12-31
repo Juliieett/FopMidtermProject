@@ -2,3 +2,59 @@
   FOR I = 1 TO 10
   PRINT X * I            
   NEXT
+
+First Line: LET X = 5
+Read: The interpreter reads the LET statement.
+Parse: It identifies that LET is an assignment command, where X is a variable, and 5 is its value.
+Execute:
+The interpreter creates an entry in the symbol table (a map of variable names to values):
+
+Symbol Table: { X: 5 }
+No output is produced.
+2. Second Line: FOR I = 1 TO 10
+Read: The interpreter reads the FOR statement.
+Parse: It recognizes this as the start of a loop:
+Variable: I
+Start Value: 1
+End Value: 10
+Execute:
+The interpreter initializes I with 1 and sets up a control structure to iterate from 1 to 10.
+Symbol Table: { X: 5, I: 1 }
+It prepares to enter the loop body.
+3. Third Line: PRINT X * I
+First Iteration (I = 1):
+Read: The interpreter reads the PRINT statement.
+Parse: It identifies that the expression to evaluate is X * I.
+Execute:
+Fetches X and I values from the symbol table:
+X = 5, I = 1
+Multiplies them: 5 * 1 = 5.
+Outputs 5.
+Update Symbol Table:
+Symbol Table: { X: 5, I: 1 }
+4. Fourth Line: NEXT
+First Iteration (I = 1):
+Read: The interpreter reads NEXT.
+Parse: It recognizes this as the end of the loop body.
+Execute:
+Increments I by 1:
+I = I + 1 → I = 2
+Checks if I is within the loop range (1 to 10):
+Yes, I = 2.
+Returns to the loop body (PRINT X * I).
+Subsequent Iterations (I = 2 to I = 10):
+The interpreter repeats the loop body for each value of I, as follows:
+
+Fetches the values of X and I.
+Computes X * I.
+Outputs the result.
+Increments I and checks the loop condition.
+Final Iteration (I = 10):
+Read: PRINT X * I:
+Fetches: X = 5, I = 10.
+Computes: 5 * 10 = 50.
+Outputs: 50.
+Read: NEXT:
+Increments I to 11.
+Checks the loop condition:
+I > 10 → Loop terminates.
