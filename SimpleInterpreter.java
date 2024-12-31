@@ -1,10 +1,10 @@
 import java.util.*;
 import java.util.regex.*;
 
-public class SimpleInterpreter{
-  private final Map<String, Integer> variables = new Hashmap<>();
+public class SimpleInterpreter {
+    private final Map<String, Integer> variables = new HashMap<>();
 
-public void eval(String code) {
+    public void eval(String code) {
         String[] lines = code.split("\n");
         int currentLine = 0;
 
@@ -37,7 +37,8 @@ public void eval(String code) {
             currentLine++;
         }
     }
-  private void handleAssignment(String line) {
+
+    private void handleAssignment(String line) {
         try {
             String[] parts = line.split("=", 2);
             if (parts.length != 2) {
@@ -51,23 +52,24 @@ public void eval(String code) {
             System.out.println("Error in assignment: " + line + " - " + e.getMessage());
         }
     }
- private int evaluateExpression(String expression) {
+
+    private int evaluateExpression(String expression) {
         try {
             Deque<Integer> values = new ArrayDeque<>();
             Deque<Character> operators = new ArrayDeque<>();
 
-            // Tokenize the expression by operators, parentheses, and numbers
-            StringTokenizer tokenizer = new StringTokenizer(expression, "+-*/()%()", true);
+            // tokenize the expression by operators, parentheses, and numbers/variables(i think thats it)
+            StringTokenizer tokenizer = new StringTokenizer(expression, "+-*/()% ", true);
             while (tokenizer.hasMoreTokens()) {
                 String token = tokenizer.nextToken().trim();
 
                 if (token.isEmpty()) continue;
 
-                // token=numbers?
+                // this checks if the token is a number
                 if (isNumeric(token)) {
                     values.push(Integer.parseInt(token));
                 }
-                // token=variables? also gets its value
+                // If the token is a variable, get its value
                 else if (variables.containsKey(token)) {
                     values.push(variables.get(token));
                 }
@@ -85,13 +87,13 @@ public void eval(String code) {
                     while (operators.peek() != '(') {
                         values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
                     }
-                    operators.pop(); // Remove '('
+                    operators.pop();
                 } else {
                     throw new IllegalArgumentException("Unknown token: " + token);
                 }
             }
 
-            // Apply remaining operators
+            // Applying remaining operators
             while (!operators.isEmpty()) {
                 values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
             }
@@ -103,31 +105,38 @@ public void eval(String code) {
         }
     }
 
-private int applyOperator(char operator, int b, int a) {
+
+    private int applyOperator(char operator, int b, int a) {
         switch (operator) {
             case '+': return a + b;
             case '-': return a - b;
             case '*': return a * b;
-            case '/': return b != 0 ? a / b : 0; // Avoid division by zero
+            case '/': return b != 0 ? a / b : 0; // we dont want division by zero
             case '%': return a % b;
             default: throw new IllegalArgumentException("Invalid operator: " + operator);
         }
     }
 
     private int precedence(char operator) {
-        return (operator == '+' || operator == '-') ? 1 : 2; // * and / have higher precedence
+        return (operator == '+' || operator == '-') ? 1 : 2;
     }
 
     private void handlePrint(String line) {
         String expression = line.replace("PRINT", "").trim();
-        if (variables.containsKey(expression)) {
-            System.out.println(variables.get(expression));
-        } else if (expression.startsWith("\"") && expression.endsWith("\"")) {
-            System.out.println(expression.substring(1, expression.length() - 1)); 
-        } else {
-            System.out.println("Undefined variable: " + expression);
+        try {
+            // Check if the expression is a string
+            if (expression.startsWith("\"") && expression.endsWith("\"")) {
+                System.out.println(expression.substring(1, expression.length() - 1)); // Removes quotes and print
+            } else {
+                // evaluate the expression as a numeric value or variable (otherwise)
+                int result = evaluateExpression(expression);
+                System.out.println(result);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in PRINT statement: " + expression + " - " + e.getMessage());
         }
     }
+
 
     private int handleForLoop(String[] lines, int currentLine) {
         try {
@@ -138,8 +147,8 @@ private int applyOperator(char operator, int b, int a) {
             }
 
             String varName = matcher.group(1);
-          String startExpr = matcher.group(2).trim();
-         String endExpr = matcher.group(3).trim();
+            String startExpr = matcher.group(2).trim();
+            String endExpr = matcher.group(3).trim();
 
             int start = evaluateExpression(startExpr);
             int end = evaluateExpression(endExpr);
@@ -170,7 +179,8 @@ private int applyOperator(char operator, int b, int a) {
             return currentLine;
         }
     }
- private int handleWhileLoop(String[] lines, int currentLine) {
+
+    private int handleWhileLoop(String[] lines, int currentLine) {
         try {
             String line = lines[currentLine].trim();
             String condition = line.replace("WHILE", "").trim();
@@ -198,51 +208,63 @@ private int applyOperator(char operator, int b, int a) {
             return currentLine;
         }
     }
-private int handleIfStatement(String[] lines, int currentLine) {
+    private int handleIfStatement(String[] lines, int currentLine) {
         try {
             String line = lines[currentLine].trim();
-            String condition = line.replace("IF", "").replace("THEN", "").trim();
-
-            boolean conditionResult = evaluateCondition(condition);
-            int i = currentLine + 1;
-
-            List<String> ifBody = new ArrayList<>();
-            List<String> elseBody = new ArrayList<>();
-            boolean inElse = false;
-
-            while (i < lines.length && !lines[i].trim().equals("END IF")) {
-                String codeLine = lines[i].trim();
-              
-                if (codeLine.startsWith("ELSE")) {
-                    inElse = true;
-                    i++;
-                    continue;
-                }
-               if (inElse) {
-                    elseBody.add(codeLine);
-                } else {
-                  ifBody.add(codeLine);
-                }
-
-                i++;
+            int thenIndex = line.indexOf("THEN");
+            if (thenIndex == -1) {
+                throw new IllegalArgumentException("Missing THEN in IF statement: " + line);
             }
+
+            String condition = line.substring(2, thenIndex).trim(); // Extract condition
+            String action = line.substring(thenIndex + 4).trim();
+
+            boolean conditionResult = evaluateCondition(condition); // Evaluate condition
+
             if (conditionResult) {
-                for (String lineInBody : ifBody) {
-                    evalLine(lineInBody);
+                if (!action.isEmpty()) {
+                    evalLine(action); // Executes if true
                 }
             } else {
-                for (String lineInBody : elseBody) {
-                    evalLine(lineInBody);
+
+                int i = currentLine + 1;
+                List<String> elseBody = new ArrayList<>();
+                boolean inElse = false;
+
+                while (i < lines.length && !lines[i].trim().equals("END IF")) {
+                    String codeLine = lines[i].trim();
+                    if (codeLine.startsWith("ELSE")) {
+                        inElse = true;
+                        i++;
+                        continue;
+                    }
+
+                    if (inElse) {
+                        elseBody.add(codeLine);
+                    }
+
+                    i++;
                 }
+
+                // Executes else block if condition is false
+                if (inElse) {
+                    for (String elseLine : elseBody) {
+                        evalLine(elseLine);
+                    }
+                }
+
+                return i;
             }
-            return i;
+
+            return currentLine + 1; // Move past the IF-ELSE block
         } catch (Exception e) {
             System.out.println("Error in IF-ELSE statement: " + e.getMessage());
+
             return currentLine;
         }
     }
 
-  private void handlePalindrome(String line) {
+    private void handlePalindrome(String line) {
         System.out.println("Checking palindrome for line: " + line);
         String varName = line.replace("PALINDROME", "").trim();
 
@@ -277,7 +299,8 @@ private int handleIfStatement(String[] lines, int currentLine) {
 
 
     private boolean evaluateCondition(String condition) {
-        Matcher matcher = Pattern.compile("(\\w+)\\s*([<>!=]+)\\s*(\\d+)").matcher(condition);
+        // had to adjust regex for "="
+        Matcher matcher = Pattern.compile("(\\w+)\\s*([<>!=]=?)\\s*(\\d+)").matcher(condition);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Invalid condition: " + condition);
         }
@@ -294,8 +317,9 @@ private int handleIfStatement(String[] lines, int currentLine) {
             case ">=" -> varValue >= value;
             case "<=" -> varValue <= value;
             case "==" -> varValue == value;
+            case "=" -> varValue == value;
             case "!=" -> varValue != value;
-            default -> false;
+            default -> throw new IllegalArgumentException("Unknown operator: " + operator);
         };
     }
 
@@ -306,7 +330,7 @@ private int handleIfStatement(String[] lines, int currentLine) {
         } else if (line.startsWith("PRINT")) {
             handlePrint(line);
         } else if (line.startsWith("IF")) {
-            // Handle inline IF statements if needed
+            // so this handel inline IF statement if needed
         } else {
             System.out.println("Unknown command: " + line);
         }
@@ -324,11 +348,9 @@ private int handleIfStatement(String[] lines, int currentLine) {
         SimpleInterpreter interpreter = new SimpleInterpreter();
 
         String program = """
-              //specific syntax of algorithms
+              
         """;
 
         interpreter.eval(program);
     }
 }
-
-
