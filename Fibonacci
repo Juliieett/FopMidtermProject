@@ -7,43 +7,80 @@ FOR I = 2 TO X
 NEXT
 PRINT B
 
+First Line: LET X = 10
+Read: The interpreter reads the LET statement.
+Parse: Recognizes this as an assignment:
+Variable: X, Value: 10.
+Execute: Updates the symbol table:
+Symbol Table: { X: 10 }
 
-Line: LET X = 10:
+2. Second Line: LET A = 0
+Read: The interpreter reads the LET statement.
+Parse: Assigns the value 0 to A.
+Execute: Updates the symbol table:
+Symbol Table: { X: 10, A: 0 }
 
-The LET command assigns the value 10 to the variable X.
-The interpreter uses handleAssignment to store X with the value 10 in the variables map.
-Line: LET A = 0:
+3. Third Line: LET B = 1
+Read: Reads the LET statement.
+Parse: Assigns the value 1 to B.
+Execute: Updates the symbol table:
+Symbol Table: { X: 10, A: 0, B: 1 }
 
-The LET command assigns 0 to the variable A.
-The interpreter adds A with the value 0 to the variables map.
-Line: LET B = 1:
+4. Fourth Line: FOR I = 2 TO X
+Read: Reads the FOR statement.
+Parse: Recognizes this as the start of a loop:
+Variable: I.
+Start Value: 2.
+End Value: Value of X, which is 10.
+Execute: Initializes I to 2 and enters the loop:
+Symbol Table: { X: 10, A: 0, B: 1, I: 2 }
 
-The LET command assigns 1 to the variable B.
-The interpreter adds B with the value 1 to the variables map.
-FOR Loop:
+5. Fifth Line: LET A = A + B
+First Iteration (I = 2):
+Read: Reads the LET statement.
+Parse: The expression is A + B.
+Execute: Fetches A and B:
+A = 0, B = 1
+Computes: 0 + 1 = 1.
+Updates A in the symbol table:
+Symbol Table: { X: 10, A: 1, B: 1, I: 2 }
 
-Line: FOR I = 2 TO X:
+6. Sixth Line: LET B = A
+First Iteration (I = 2):
+Read: Reads the LET statement.
+Parse: Assigns the value of A to B.
+Execute: Updates B:
+B = A → B = 1
+Symbol table after this line:
+Symbol Table: { X: 10, A: 1, B: 1, I: 2 }
 
-The FOR loop initializes the loop variable I to 2 and sets the condition to run until I is less than or equal to X (10).
-The interpreter parses the loop range using handleForLoop and sets up the loop to execute its body repeatedly.
-Loop Body:
+7. Seventh Line: NEXT
+First Iteration (I = 2):
+Read: Reads the NEXT statement.
+Parse: Ends the current iteration and increments I by 1.
+Execute:
+I = I + 1 → I = 3
+Checks loop condition (I <= X):
+Yes, 3 <= 10. Re-enters the loop.
+Subsequent Iterations (I = 3 to I = 10):
+The interpreter executes the loop body for each value of I as follows:
 
-During each iteration, the following commands are executed:
-
-Line: LET A = A + B:
-
-The LET command updates the value of A by adding the current values of A and B.
-The interpreter retrieves A and B from the variables map, computes their sum, and updates A with the result.
-Line: LET B = A:
-
-The LET command assigns the updated value of A to B.
-The interpreter sets the value of B to match the new value of A.
-Line: NEXT:
-
-The NEXT command increments the loop variable I and checks if I is still within the range (2 to X).
-If I is within range, the loop body executes again. Otherwise, the loop exits.
-Output:
-
-Line: PRINT B:
-The PRINT command outputs the value of B after the loop completes.
-The interpreter retrieves the final value of B from the variables map and prints it.
+Calculate A = A + B:
+Fetches the current values of A and B.
+Updates A with the result.
+Assign B = A:
+Updates B to the new value of A.
+Increment I and check condition:
+Increments I.
+Checks if I <= X to decide whether to continue the loop.
+Final Iteration (I = 10):
+Read LET A = A + B:
+Updates A and B one last time.
+Read NEXT:
+Increments I to 11.
+Checks loop condition (I <= 10):
+11 > 10 → Loop terminates.
+8. Last Line: PRINT B
+Read: Reads the PRINT statement.
+Parse: Fetches the value of B from the symbol table.
+Execute: Outputs the final value of B.
